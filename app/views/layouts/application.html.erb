@@ -10,10 +10,17 @@
   </head>
 
   <body class="d-flex flex-column">
+
     <%= render 'layouts/nav' %>
+    
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
     <%= render 'layouts/footer' %>
+
   </body>
 </html>
