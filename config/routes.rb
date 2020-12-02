@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard', to: 'dashboard#show'
   resources :articles
   resources :accounts
   devise_for :users, controllers: { registrations: "registrations" }
