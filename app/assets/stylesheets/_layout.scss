@@ -7,7 +7,7 @@
 
   body {
     background: var(--background);
-    height: 100vh;
+    height: auto;
     color: var(--textDark);
   }
 
@@ -17,6 +17,7 @@
 
   .register {
     margin-top: 10rem;
+    margin-bottom: 10rem;
     background: white;
     border-radius: 10px;
   }
@@ -76,4 +77,8 @@
   .fas {
     color: var(--textLight);
     margin-right: 1rem;
+  }
+
+  .margin-40 {
+    margin: 40px !important;
   }

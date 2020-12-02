@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-  # before_action :validate_user, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user, only: [:show, :edit, :update, :destroy]
 
   # GET /accounts
   # GET /accounts.json
@@ -16,7 +16,8 @@ class AccountsController < ApplicationController
 
   # GET /accounts/new
   def new
-    @account = Account.new
+    # @account = Account.new
+    @account = current_user.build_account
   end
 
   # GET /accounts/1/edit
@@ -26,11 +27,12 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
-    @account = Account.new(account_params)
+    # @account = Account.new(account_params)
+    @account = current_user.build_account(account_params)
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Account was successfully created.' }
         format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }
@@ -75,9 +77,9 @@ class AccountsController < ApplicationController
       params.require(:account).permit(:name, :active)
     end
 
-    # def validate_user
-    #   if current_user != Account.find(params[:id]).user
-    #     redirect_to root_path
-    #   end
-    # end
+    def validate_user
+      if current_user != Account.find(params[:id]).user
+        redirect_to root_path
+      end
+    end
 end

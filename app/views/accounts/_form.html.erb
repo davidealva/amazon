@@ -1,27 +1,121 @@
-<%= form_with(model: account, local: true) do |form| %>
-  <% if account.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+<section class='container'>
+<div class="columns">
+  <div class="column">
+    <%= form_with(model: account, local: true) do |f| %>
+      <% if account.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
 
-      <ul>
-        <% account.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% account.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+      <div class="field">
+        <%= f.label :name, 'Business Name', class: 'label' %>
+        <%= f.text_field :name, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :type, 'Business Type', class: 'label' %>
+        <div class="select">
+        <%= f.select :type, [ 'Provider','Service','Facility' ], :prompt => 'Select One' %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :category, 'Business Category', class: 'label' %>
+        <%= f.text_field :category, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :provider_name, 'Provider Name', class: 'label' %>
+        <%= f.text_field :provider_name, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :provider_name, 'Provider Name', class: 'label' %>
+        <%= f.text_field :provider_name, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address1, 'Address 1', class: 'label' %>
+        <%= f.text_field :address1, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address2, 'Address 2', class: 'label' %>
+        <%= f.text_field :address2, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :city, 'City', class: 'label' %>
+        <%= f.text_field :city, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :state, 'State', class: 'label' %>
+        <%= f.text_field :state, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :zip, 'Zip Code', class: 'label' %>
+        <%= f.text_field :zip, class: 'input' %>
+      </div>
   </div>
+  <div class="column"> 
+      <div class="field">
+        <%= f.label :phone, 'Business Phone', class: 'label' %>
+        <%= f.text_field :phone, class: 'input' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
-  </div>
+      <div class="field">
+        <%= f.label :url, 'Business Url', class: 'label' %>
+        <%= f.text_field :url, class: 'input' %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="field">
+        <%= f.label :email, 'Business Email', class: 'label' %>
+        <%= f.text_field :email, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description, 'Business Description', class: 'label' %>
+        <%= f.text_area :description, class: 'textarea' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :conditions, 'Conditions Treated', class: 'label' %>
+        <%= f.text_field :conditions, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :contact_name, 'Business Contact Name', class: 'label' %>
+        <%= f.text_field :contact_name, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :contact_number, 'Business Contact Number', class: 'label' %>
+        <%= f.text_field :contact_number, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :contact_email, 'Business Contact Email', class: 'label' %>
+        <%= f.text_field :contact_email, class: 'input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :contact_titke, 'Business Contact Title', class: 'label' %>
+        <%= f.text_field :contact_title, class: 'input' %>
+      </div>
+
+      <div class="control">
+        <%= f.submit 'Update Account', class: "button is-dark"  %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+</section>
