@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get 'dashboard', to: 'dashboard#show'
   resources :articles
   resources :accounts
