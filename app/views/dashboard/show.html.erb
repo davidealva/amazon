@@ -1,8 +1,8 @@
 <section class="dashboard">
   <div class="container">
     <div class="content">
-      <h1 class="has-text-info"><%= @account.name %></h1>
-      <p><%= @account.city %>, <%= @account.state %></p>
+      <h1 class="has-text-link"><%= @account.name %></h1>
+      <p>Status: <button class="button is-danger is-small" title="Disabled button" disabled>Waiting Approval</button></p>
     </div>
     <div class="box">
       <div class="box-header"><h1 class="is-pulled-left">Articles</h1> <%= link_to 'Create A New Article', new_article_path, class: "is-pulled-right" %></div>
