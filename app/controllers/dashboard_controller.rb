@@ -2,14 +2,15 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account
 
-  def show
+  def index
     @account = current_user.account
     @articles = current_user.articles
+    @events = current_user.events
   end
 
-  def set_account
-    @account = current_user.account
-    @articles = current_user.articles
-  end
-
+  private
+    def set_account
+      @account = current_user.account
+      @articles = current_user.articles
+    end
 end
