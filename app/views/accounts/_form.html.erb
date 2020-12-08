@@ -1,6 +1,6 @@
 <section class='container'>
 <div class="columns">
-  <div class="column">
+  <div class="column is-5 is-offset-1">
     <%= form_with(model: account, local: true) do |f| %>
       <% if account.errors.any? %>
         <div id="error_explanation">
@@ -20,11 +20,17 @@
       </div>
 
       <div class="field">
-        <%= f.label :type, 'Business Type', class: 'label' %>
-        <div class="select">
-        <%= f.select :type, [ 'Provider','Service','Facility' ], :prompt => 'Select One' %>
+        <%= f.label :business_type, 'Business Type', class: 'label' %>
+        <div class="control">
+          <%= f.radio_button :business_type, "Provider", class: "radio" %>
+          <%= f.label :business_type, "Provider", class: "radio" %>
+          <%= f.radio_button :business_type, "Service", class: "radio" %>
+          <%= f.label :business_type, "Service", class: "radio" %>
+          <%= f.radio_button :business_type, "Facility", class: "radio" %>
+          <%= f.label :business_type, "Facility", class: "radio" %>
         </div>
       </div>
+
 
       <div class="field">
         <%= f.label :category, 'Business Category', class: 'label' %>
@@ -66,7 +72,7 @@
         <%= f.text_field :zip, class: 'input' %>
       </div>
   </div>
-  <div class="column"> 
+  <div class="column is-5"> 
       <div class="field">
         <%= f.label :phone, 'Business Phone', class: 'label' %>
         <%= f.text_field :phone, class: 'input' %>

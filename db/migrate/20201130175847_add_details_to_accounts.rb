@@ -1,6 +1,6 @@
 class AddDetailsToAccounts < ActiveRecord::Migration[6.0]
   def change
-    add_column :accounts, :type, :string
+    add_column :accounts, :business_type, :string
     add_column :accounts, :category, :string
     add_column :accounts, :provider_name, :string
     add_column :accounts, :address1, :string

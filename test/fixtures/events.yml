@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_name: MyString
+  contact: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  event_url: MyString
+  event_email: MyString
+  description: MyText
+  date: 2020-12-03
+  time: 2020-12-03 12:13:43
+  cost: MyString
+
+two:
+  event_name: MyString
+  contact: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  event_url: MyString
+  event_email: MyString
+  description: MyText
+  date: 2020-12-03
+  time: 2020-12-03 12:13:43
+  cost: MyString

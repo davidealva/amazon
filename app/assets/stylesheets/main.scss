@@ -1,2 +1,15 @@
 @import '_layout';
 @import 'bulma/bulma';
+
+.dashboard {
+    margin-top: 40px;
+    min-height: 650px;
+}
+
+.box-header {
+    margin-bottom: 40px;
+}
+
+button.is-danger.is-small {
+    margin-top: -3px;
+}
