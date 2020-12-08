@@ -17,8 +17,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :content, class: 'label' %>
-    <%= f.text_area :content, class: 'input' %>
+    <div class="control">
+      <%= f.rich_text_area :content, class: 'textarea is-large' %>
+    </div>
   </div>
 
   <div class="field">
