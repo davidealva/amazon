@@ -1,9 +1,11 @@
-<div class="notification is-success">
-  <button class="delete"></button>
-   <%= notice %>
-</div>
-
-<div class="notification is-danger">
-  <button class="delete"></button>
-   <%= alert %>
-</div>
+<% flash.each do |key, message| %>
+  <% if flash.key? :notice %>
+    <div class="notification is-success is-light">
+      <%= message %>
+    </div>
+  <% else %>
+    <div class="notification is-danger is-light">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
