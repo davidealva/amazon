@@ -1,16 +1,27 @@
-<p>
-  <strong>User:</strong>
-  <%= @account.user_id %>
-</p>
+<section class='dashboard'>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-2">
+        <h1>A Side</h1>
+      </div>
+      <div class="column is-8">    
+        <p>
+          <strong>User:</strong>
+          <%= @account.user_id %>
+        </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @account.name %>
-</p>
+        <p>
+          <strong>Name:</strong>
+          <%= @account.name %>
+        </p>
 
-<p>
-  <strong>Active:</strong>
-  <%= @account.active %>
-</p>
+        <p>
+          <strong>Active:</strong>
+          <%= @account.active %>
+        </p>
 
-<%= link_to 'Back', directory_index_path %>
+        <%= link_to 'Back', directory_index_path %>
+      </div>
+    </div>
+  </div>
+</section>
