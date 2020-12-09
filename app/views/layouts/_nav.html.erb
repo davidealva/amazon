@@ -21,14 +21,26 @@
 
       <div class="navbar-end">
         <div class="navbar-item">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <% if user_signed_in? %>
+              <a class="navbar-link">
+                Account
+              </a>
+
+              <div class="navbar-dropdown">
+                <%= link_to "Dashboard", dashboard_path, class: "navbar-item" %>
+                <%= link_to "Edit Account", edit_account_path(current_user.account), class: "navbar-item" %>
+              </div>
+            <% end %> 
+          </div>
+
           <div class="buttons">
-          <% if user_signed_in? %>
-          <%= link_to "Dashboard", dashboard_path, class: "navbar-item" %>
-            <%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true }, class: "button is-light" %>
-          <% else %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "button is-dark" %>  
-            <%= link_to "Log In", new_user_session_path, class: "button is-light" %>  
-          <% end %> 
+            <% if user_signed_in? %>
+              <%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true }, class: "button is-light" %>
+            <% else %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "button is-dark" %>  
+              <%= link_to "Log In", new_user_session_path, class: "button is-light" %>  
+            <% end %> 
           </div>
         </div>
       </div>
