@@ -1,25 +1,25 @@
-<section class='container'>
-  <div class="columns">
-    <div class="column is-8 is-offset-2">
-      <p id="notice"><%= notice %></p>
+<section class='dashboard'>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <p>
+          <strong>Title:</strong>
+          <%= @article.title %>
+        </p>
 
-      <p>
-        <strong>Title:</strong>
-        <%= @article.title %>
-      </p>
+        <p>
+          <strong>Content:</strong>
+          <%= @article.content %>
+        </p>
 
-      <p>
-        <strong>Content:</strong>
-        <%= @article.content %>
-      </p>
+        <p>
+          <strong>Author:</strong>
+          <%= @article.author %>
+        </p>
 
-      <p>
-        <strong>Author:</strong>
-        <%= @article.author %>
-      </p>
-
-      <%= link_to 'Edit', edit_dashboard_article_path(@article) %> |
-      <%= link_to 'Back', dashboard_path %>
+        <%= link_to 'Edit', edit_dashboard_article_path(@article) %> |
+        <%= link_to 'Back', dashboard_path %>
+      </div>
     </div>
   </div>
 </section>

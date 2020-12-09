@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
+  
   get 'home/index'
   root 'home#index'
 
@@ -10,7 +11,9 @@ Rails.application.routes.draw do
   end
 
   resources :accounts
-  # resources :articles
+  resources :articles, only: [:index, :show]
+  resources :directory, only: [:index, :show]
+ 
   # resources :events
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
