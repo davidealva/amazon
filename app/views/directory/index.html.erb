@@ -1,12 +1,27 @@
 <section class='dashboard'>
   <div class="container">
     <div class="columns">
-      <div class="column is-2">
-        <h1>A Side</h1>
-      </div>
-      <div class="column is-8">
-        <h1>Business Directoy Listing</h1>
+      <div class="column is-3">
+        <h1 class="is-size-4">Search by:</h1>
+          <%= search_form_for @search, url: search_directory_index_path , method: :post do|f| %>
+            <div class="field">
+              <%= f.label :state_eq, 'State', class: 'label' %>
+              <div class="select">
+                <%= f.select :state_eq, US_STATES.invert.sort %>
+              </div>
+            </div>
+            <div class="field">
+              <%=f.label :business_type_matches, "Business Type:", class: 'label' %>
+              <div class="select">
+                <%=f.select :business_type_matches, [[" Filter by type", ""],["Provider", "provider"], ["Service", "service"], ["Facility", "facility"]], selected: "" %>
+              </div>
+            </div>
 
+            <div class="actions"><%=f.submit "Search...", class: 'button is-dark' %></div>
+          <% end %>
+      </div>
+      <div class="column is-7">
+        <h1 class="is-size-4">Business Directoy Listing</h1>
         <div class="table-container">
           <table class="table is-fullwidth">
             <thead>
