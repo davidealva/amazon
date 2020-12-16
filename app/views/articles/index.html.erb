@@ -1,11 +1,20 @@
 <section class='dashboard'>
   <div class="container">
     <div class="columns">
-      <div class="column is-2">
-        <h1>A Side</h1>
+      <div class="column is-3">
+        <h1 class="is-size-4">Search by:</h1>
+         <%= search_form_for @search, url: search_articles_path , method: :post do|f| %>
+            <div class="field">
+              <%=f.label :content_or_action_text_rich_text_body_cont, "Article Content", class: 'label' %>
+              <div class="control">
+                <%=f.search_field :content_or_action_text_rich_text_body_cont, class: 'input' %>
+              </div>    
+            </div>
+            <div class="actions"><%=f.submit "Search...", class: 'button is-dark' %></div>
+          <% end %>
       </div>
       <div class="column is-8">
-        <h1>Articles</h1>
+        <h1 class="is-size-4">Articles</h1>
 
         <div class="table-container">
           <table class="table is-fullwidth">
@@ -22,7 +31,7 @@
               <% @articles.each do |article| %>
                 <tr>
                   <td><%= link_to article.title, article %></td>
-                  <td><%= article.content %></td>
+                  <td><%= truncate(strip_tags(article.content.to_s), length: 40) %></td>
                   <td><%= article.author %></td>
                 </tr>
               <% end %>

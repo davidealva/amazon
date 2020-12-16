@@ -3,7 +3,8 @@ class DirectoryController < ApplicationController
 
   # GET /directory
   def index
-    @accounts = Account.all
+    @search = Account.ransack(params[:q])
+    @accounts = @search.result
   end
 
   # GET /directory/1
